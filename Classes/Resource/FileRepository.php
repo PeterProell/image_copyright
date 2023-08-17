@@ -80,6 +80,7 @@ class FileRepository extends \TYPO3\CMS\Core\Resource\FileRepository
         }
 
         // Get all PIDs in a page tree if no pid is given explicitly
+        $pid = $GLOBALS['TSFE']->id;
         $pageTreePidArray = $pid !== null ? [$pid] : $this->getPageTreePidArray();
 
         if (!empty($GLOBALS['TSFE']->sys_page) && $this->getEnvironmentMode() === 'FE') {
